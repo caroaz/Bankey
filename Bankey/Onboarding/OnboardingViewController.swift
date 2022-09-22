@@ -15,6 +15,7 @@ class OnboardingViewController: UIViewController {
         self.heroImageName = heroImageName
         self.titleText = titleText
         super .init(nibName: nil, bundle: nil)
+        
     }
     
     required init?(coder: NSCoder) {
