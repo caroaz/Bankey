@@ -2,6 +2,12 @@
 
 import UIKit
 
+protocol LoginViewControllerDelegate: AnyObject {
+    func didLogin()
+}
+protocol LogoutDelegate: AnyObject {
+    func didLogout()
+}
 class LoginViewController: UIViewController {
     
     let loginView = LoginView()
@@ -9,6 +15,8 @@ class LoginViewController: UIViewController {
     let errorMessageLabel = UILabel()
     let titleLabel = UILabel()
     let subtitleLabel = UILabel()
+    
+    weak var delegate : LoginViewControllerDelegate?
     
     var username : String? {
         return loginView.userNameTextField.text
@@ -24,7 +32,10 @@ class LoginViewController: UIViewController {
         style()
         layout()
     }
-    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        signInButton.configuration?.showsActivityIndicator = false
+    }
     
 }
 
@@ -120,7 +131,7 @@ extension LoginViewController{
     }
     private func login() {
         guard let username = username, let password = password else {
-//            assertion, ocupan los desarrolladores para decir que nunca debiese detenerse en esta línea
+            //            assertion, ocupan los desarrolladores para decir que nunca debiese detenerse en esta línea
             assertionFailure("Username / Password should never be nil")
             return
         }
@@ -129,12 +140,13 @@ extension LoginViewController{
             configureView(whitMessage: "Username / Password cannot be blank")
             return
         }
-        if username == "Kevin" && password == "asd" {
+        if username == "a" && password == "a" {
             signInButton.configuration?.showsActivityIndicator = true
+            delegate?.didLogin()
         }else {
             configureView(whitMessage: "Incorrect Username / Password")
         }
-             
+        
     }
     
     private func configureView(whitMessage message: String ){
@@ -143,3 +155,4 @@ extension LoginViewController{
         
     }
 }
+
