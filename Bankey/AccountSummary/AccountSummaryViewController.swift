@@ -18,12 +18,18 @@ class AccountSummaryViewController: UIViewController {
         "Space Patrol",
     ]
     
+    var screen: UIScreen = UIScreen()
+    
     var tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        setupTableHeadeView()
     }
+    
+    
+    
 }
 
 extension AccountSummaryViewController {
@@ -44,6 +50,19 @@ extension AccountSummaryViewController {
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    private func setupTableHeadeView(){
+        let header = AccountSummaryHeaderView(frame: .zero)
+        
+        var size = header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize) // the height
+//        size.width = UIScreen.main.bounds.width
+        
+        size.width = screen.bounds.width
+        
+        header.frame.size = size //the width
+        
+        tableView.tableHeaderView = header
     }
 }
 
