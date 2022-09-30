@@ -41,8 +41,13 @@ extension AccountSummaryViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        tableView.register(AccountSummaryCell.self, forCellReuseIdentifier: AccountSummaryCell.reuseID)
+        tableView.rowHeight = AccountSummaryCell.rowHeight
+        tableView.tableFooterView = UIView()
+        
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
+        
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -56,7 +61,7 @@ extension AccountSummaryViewController {
         let header = AccountSummaryHeaderView(frame: .zero)
         
         var size = header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize) // the height
-//        size.width = UIScreen.main.bounds.width
+        //        size.width = UIScreen.main.bounds.width
         
         size.width = screen.bounds.width
         
@@ -68,8 +73,7 @@ extension AccountSummaryViewController {
 
 extension AccountSummaryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = games[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryCell.reuseID, for: indexPath) as! AccountSummaryCell
         return cell
     }
     
