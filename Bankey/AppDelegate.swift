@@ -12,15 +12,15 @@ let appColor :  UIColor = .systemTeal
 class AppDelegate: UIResponder, UIApplicationDelegate{
     
     
-
-
+    
+    
     var window : UIWindow?
     let loginViewController = LoginViewController()
     let onboardingViewController = OnboardingContainerViewController()
-
+    
     let mainViewController = MainViewController()
     
-//    var hasOnboraded = false
+    //    var hasOnboraded = false
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -29,31 +29,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         
         loginViewController.delegate = self
         onboardingViewController.delegate = self
-    
-        let vc = mainViewController
-        vc.setStatusBar()
         
+        displayLogin()
         
-        UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().backgroundColor = appColor
-            
-        window?.rootViewController = vc
-            
         return true
         
-//        window?.rootViewController = OnboardingViewController(heroImageName: "delorean", titleText: "Bankey is faster, easier to use, and has a brand new look and feel that will make you feel like you are back in 1989.")
-      
+        //        window?.rootViewController = OnboardingViewController(heroImageName: "delorean", titleText: "Bankey is faster, easier to use, and has a brand new look and feel that will make you feel like you are back in 1989.")
+        
+    }
+    
+    private func displayLogin(){
+        setRootViewController(loginViewController)
+    }
+    private func displayNextScreen() {
+        if LocalState.hasOnboarded {
+            prepMainView()
+            setRootViewController(mainViewController)
+        } else {
+            setRootViewController(onboardingViewController)
+        }
+    }
+    
+    private func prepMainView() {
+        mainViewController.setStatusBar()
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().backgroundColor = appColor
     }
     
 }
 
 extension AppDelegate : LoginViewControllerDelegate {
     func didLogin() {
-        if LocalState.hasOnboarded {
-                   setRootViewController(mainViewController) // here
-               } else {
-                   setRootViewController(onboardingViewController)
-               }
+        displayNextScreen()
     }
     
     
@@ -62,6 +69,7 @@ extension AppDelegate : LoginViewControllerDelegate {
 extension AppDelegate: OnboardingContainerViewControllerDelegate{
     func didFinishOnboarding() {
         LocalState.hasOnboarded = true
+        prepMainView()
         setRootViewController(mainViewController) // here
     }
     
@@ -85,7 +93,7 @@ extension AppDelegate{
             self.window?.makeKeyAndVisible()
             return
         }
-
+        
         window.rootViewController = vc
         window.makeKeyAndVisible()
         UIView.transition(with: window,
