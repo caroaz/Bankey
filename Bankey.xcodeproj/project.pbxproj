@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22DDBBFB28EDB51F0001C7A1 /* DecimalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDBBFA28EDB51F0001C7A1 /* DecimalUtils.swift */; };
+		227E8F8D290043E2001C8930 /* NSNotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227E8F8C290043E2001C8930 /* NSNotificationName.swift */; };
+		227E8F8F29019A41001C8930 /* UITextField+SecureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227E8F8E29019A40001C8930 /* UITextField+SecureToggle.swift */; };
+		22DDBBFB28EDB51F0001C7A1 /* Decimal+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDBBFA28EDB51F0001C7A1 /* Decimal+Utils.swift */; };
 		22DDBBFD28EDB7940001C7A1 /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDBBFC28EDB7940001C7A1 /* CurrencyFormatter.swift */; };
 		22DDBC0528EF0A8C0001C7A1 /* BankeyUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDBC0428EF0A8C0001C7A1 /* BankeyUnitTests.swift */; };
 		22DDBC0C28EF0CBF0001C7A1 /* CurrencyFormatterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DDBC0B28EF0CBF0001C7A1 /* CurrencyFormatterTest.swift */; };
@@ -39,7 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		22DDBBFA28EDB51F0001C7A1 /* DecimalUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalUtils.swift; sourceTree = "<group>"; };
+		227E8F8C290043E2001C8930 /* NSNotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNotificationName.swift; sourceTree = "<group>"; };
+		227E8F8E29019A40001C8930 /* UITextField+SecureToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+SecureToggle.swift"; sourceTree = "<group>"; };
+		22DDBBFA28EDB51F0001C7A1 /* Decimal+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Utils.swift"; sourceTree = "<group>"; };
 		22DDBBFC28EDB7940001C7A1 /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 		22DDBC0228EF0A8C0001C7A1 /* BankeyUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BankeyUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22DDBC0428EF0A8C0001C7A1 /* BankeyUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankeyUnitTests.swift; sourceTree = "<group>"; };
@@ -95,8 +99,10 @@
 			children = (
 				22EA3AEA28DCE34500489011 /* LocalState.swift */,
 				22EA3AEC28DE356C00489011 /* UIViewControllers+Utils.swift */,
-				22DDBBFA28EDB51F0001C7A1 /* DecimalUtils.swift */,
+				22DDBBFA28EDB51F0001C7A1 /* Decimal+Utils.swift */,
 				22DDBBFC28EDB7940001C7A1 /* CurrencyFormatter.swift */,
+				227E8F8C290043E2001C8930 /* NSNotificationName.swift */,
+				227E8F8E29019A40001C8930 /* UITextField+SecureToggle.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -303,9 +309,11 @@
 				22EA3AEB28DCE34500489011 /* LocalState.swift in Sources */,
 				22EA3AE828DB892000489011 /* DummyViewController.swift in Sources */,
 				22EA3AF428E47DA400489011 /* AccountSummaryHeaderView.swift in Sources */,
+				227E8F8F29019A41001C8930 /* UITextField+SecureToggle.swift in Sources */,
 				25D211DE28C7763B003235BE /* LoginViewController.swift in Sources */,
 				22DDBBFD28EDB7940001C7A1 /* CurrencyFormatter.swift in Sources */,
-				22DDBBFB28EDB51F0001C7A1 /* DecimalUtils.swift in Sources */,
+				22DDBBFB28EDB51F0001C7A1 /* Decimal+Utils.swift in Sources */,
+				227E8F8D290043E2001C8930 /* NSNotificationName.swift in Sources */,
 				22EA3AED28DE356C00489011 /* UIViewControllers+Utils.swift in Sources */,
 				22EA3AFA28E72B6300489011 /* AccountSummaryCell.swift in Sources */,
 				25070EBC28D0D177004C2A32 /* OnboardingViewController.swift in Sources */,
@@ -497,7 +505,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JL4H4P46FP;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bankey/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -524,7 +532,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JL4H4P46FP;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bankey/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
